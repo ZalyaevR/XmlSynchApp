@@ -32,6 +32,7 @@ public class XMLHandler {
     /**
      * Экспортирует данные из базы данных в XML-файл.
      *
+     * @param fileName Имя файла, в который будут экспортированы данные.
      * @throws Exception Если произошла ошибка при работе с базой данных или файлом.
      */
     public void exportToXML(String fileName) throws Exception {
@@ -74,6 +75,7 @@ public class XMLHandler {
     /**
      * Синхронизирует данные в базе данных с данными из XML-файла.
      *
+     * @param fileName Имя файла, из которого будут синхронизированы данные.
      * @throws Exception Если произошла ошибка при работе с базой данных или файлом.
      */
     public void syncFromXML(String fileName) throws Exception {
@@ -108,7 +110,7 @@ public class XMLHandler {
         try {
             connection.setAutoCommit(false);
 
-            // Fetch current data from DB
+            // Получить текущие данные из БД
             String selectSQL = "SELECT DepCode, DepJob, Description FROM departments";
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(selectSQL);

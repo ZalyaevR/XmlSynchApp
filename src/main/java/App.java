@@ -4,6 +4,8 @@ import org.apache.logging.log4j.core.config.Configurator;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.io.PrintStream;
+import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -24,6 +26,9 @@ public class App {
      *             </ul>
      */
     public static void main(String[] args) {
+
+        System.setOut(new PrintStream(System.out, true, StandardCharsets.UTF_8));
+
         if (args.length < 1) {
             printHelp();
             System.exit(1);
@@ -34,6 +39,8 @@ public class App {
 
         Properties properties = loadProperties("application.properties");
         if (properties == null) {
+            System.out.println("Файл application.properties не инициализирован");
+            logger.info("Файл application.properties не инициализирован");
             System.exit(1);
         }
 

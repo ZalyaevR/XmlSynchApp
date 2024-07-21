@@ -63,4 +63,17 @@ public class Key {
         result = 31 * result + depJob.hashCode();
         return result;
     }
+
+    /**
+     * Возвращает String представление текущего объекта.
+     *
+     * @return String.
+     */
+    @Override
+    public String toString() {
+        return "Key{" +
+                "depCode='" + depCode + '\'' +
+                ", depJob='" + depJob + '\'' +
+                '}';
+    }
 }
