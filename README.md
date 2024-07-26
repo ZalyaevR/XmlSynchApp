@@ -37,7 +37,7 @@ CREATE TABLE departments (
     ID SERIAL PRIMARY KEY,
     DepCode VARCHAR(20) NOT NULL,
     DepJob VARCHAR(100) NOT NULL,
-    Description VARCHAR(255),
+    Description VARCHAR(255) NOT NULL,
     UNIQUE (DepCode, DepJob)
 );
 
